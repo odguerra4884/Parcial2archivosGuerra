@@ -88,3 +88,17 @@ int main() {
 
     return 0;
 }
+
+#include <fstream>
+#include <string>
+
+void agregarTextoArchivos(int numArchivos, std::string textoAgregar) {
+    for (int i = 1; i <= numArchivos; i++) {
+        std::string nombreArchivo = "file" + std::to_string(i) + ".txt";
+        std::ofstream archivo(nombreArchivo, std::ios_base::app);
+        for (int j = 0; j < i; j++) {
+            archivo << textoAgregar << "\n";
+        }
+        archivo.close();
+    }
+}
